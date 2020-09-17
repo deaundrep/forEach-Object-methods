@@ -16,6 +16,16 @@ const obj = {
     age: 21,
   },
 };
+
+Object.entries(obj).forEach((user) => {
+  console.log(`${user[0]} is called ${user[1].name} and is ${user[1].age} years old`)
+});
+
+
+  
+
+
+
 // Use Object Methods
 //Create an albphabeticl list of every folder in the documents object (the keys are the folders)
 //Create a list of every file in the documents object. one list.
@@ -25,6 +35,17 @@ const documents = {
   miscellaneous: ['pic.jpg', 'passwords.pdf', 'docs.txt'],
   Clubhouse: ['paty.jpg', 'christmasRules.pdf', 'pool.txt'],
 };
+
+let folder = Object.keys(documents).sort()
+console.log(folder)
+
+let fileArray = Object.values(documents).flat()
+console.log(fileArray)
+
+
+
+
+
 //Are the two books alike? Create a function and Use Object methods to find out. Change object values to test for non-alike objects
 const book1 = {
   title: 'My Book',
@@ -36,3 +57,19 @@ const book2 = {
   author: 'John Doe',
   year: '2019',
 };
+
+let alike = (book1, book2) => {
+  let bookKey1 = Object.keys(book1);
+  let bookKey2 = Object.keys(book2);
+
+  if (bookKey1.length !== bookKey2.length){
+    return false
+  }
+  for(let key of bookKey1){
+    if (book1[key] !== book2[key]){
+      return false;
+    }
+  }
+return true
+}
+console.log(alike(book1,book2))
